@@ -1,0 +1,34 @@
+/* 全局样式表 */
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* .box-card {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.el-table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.el-pagination {
+  margin-top: 15px;
+}
+
+.el-steps {
+  margin: 15px 0;
+}
+
+.el-step__title {
+  font-size: 13px;
+}
+
+.ql-editor {
+  min-height: 300px;
+}
+.el-cascader-node__postfix {
+  right: 18px !important;
+} */
