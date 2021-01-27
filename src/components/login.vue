@@ -33,8 +33,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123456'
       },
       loginFormRules: {
         username: [
@@ -48,10 +48,21 @@ export default {
       }
     }
   },
-
   methods: {
-    login() {},
-    resetLoginForm() {}
+    login() {
+      this.$refs.LoginFormRef.validate(async (valid) => {
+        if (!valid) return this.$message.error('登录失败')
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        console.log(res)
+        if (res.meta.status != 200) return this.$message.error(res.meta.msg)
+        window.sessionStorage.setItem('token', res.data.token)
+        this.$message.success('登录成功')
+        this.$router.push('/home')
+      })
+    },
+    resetLoginForm() {
+      this.$refs.LoginFormRef.resetFields()
+    }
   }
 }
 </script>
